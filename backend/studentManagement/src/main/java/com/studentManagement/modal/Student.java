@@ -2,6 +2,7 @@ package com.studentManagement.modal;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,6 +42,7 @@ public class Student {
     @Enumerated(EnumType.STRING)
     private Gender gender;
     @Past(message = "date of birth should be in past format")
+    @NotNull(message = "date of birth can't be blank")
     private LocalDate dob;
 
     @NotBlank

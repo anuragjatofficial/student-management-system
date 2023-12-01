@@ -104,6 +104,8 @@ export default function TableRows({ e, setStudents }: any) {
         fetchData();
       })
       .catch((err) => {
+        console.log(err);
+        
         toast({
           title: "Error",
           description: err.response.data.message,

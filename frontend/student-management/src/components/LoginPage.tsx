@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Button, useToast } from '@chakra-ui/react';
 import { BeatLoader } from 'react-spinners';
 
-export default function LoginPage({ students, setStudents }: any) {
+export default function LoginPage({ students, setStudents, setIsLoaded, setError }: any) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dob, setDob] = useState("");
@@ -60,11 +60,17 @@ export default function LoginPage({ students, setStudents }: any) {
   };
 
   const fetchData = () => {
-    axios.get(`${baseURL}/students`).then((res) => {
-      const { data } = res;
-      setStudents(data);
-      console.log(data);
-    });
+    axios
+      .get(`${baseURL}/students`)
+      .then((res) => {
+        const { data } = res;
+        setIsLoaded(true);
+        setStudents(data);
+        console.log(data);
+      })
+      .catch((err) => {
+        setError(true);
+      });
   };
 
   useEffect(fetchData, []);
