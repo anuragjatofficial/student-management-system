@@ -12,4 +12,5 @@ public interface StudentService {
     List<Student> getAllStudent();
 
     Student updateStudent(Student student, String studentId);
+    String deleteStudent(String studentId);
 }

@@ -9,6 +9,19 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+/*
+ 
+ {
+ "firstname";"Maximus",
+ "lastname";" Wales",
+ "phone";"9123456789",
+ "gender";"MALE",
+ "dob";"2000-01-01",
+ "address";"Sparta"
+ }
+ 
+ */
+
 @Entity
 @Data
 @NoArgsConstructor

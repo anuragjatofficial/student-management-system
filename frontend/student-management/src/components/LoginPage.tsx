@@ -1,43 +1,81 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import axios from 'axios';
+import { Button, useToast } from '@chakra-ui/react';
+import { BeatLoader } from 'react-spinners';
 
-export default function LoginPage() {
-  const [firstName,setFirstName] = useState("");
-  const [lastName,setLastName] = useState("");
-  const [dob,setDob] = useState("");
-  const [gender,setGender] = useState("MALE");
-  const [phone,setPhone] = useState(""); 
-  const [streetAddress,setStreetAddress] = useState("");
-  const [city,setCity] =useState("");
-  const [province,setProvince] = useState("");
-  const [zip,setZip] = useState("");
+export default function LoginPage({ students, setStudents }: any) {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [dob, setDob] = useState("");
+  const [gender, setGender] = useState("MALE");
+  const [phone, setPhone] = useState("");
+  const [streetAddress, setStreetAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [zip, setZip] = useState("");
   const baseURL = process.env.REACT_APP_API_BASE_URL;
+  const [loading, setLoading] = useState(false);
+  const toast = useToast();
 
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     const Student = {
-      firstName: firstName,
-      lastName: lastName,
+      firstname: firstName,
+      lastname: lastName,
       dob: dob,
       gender: gender,
       phone: phone,
       address: `${streetAddress} ${city} ${province}- ${zip}`,
     };
-
-    axios.post(`${baseURL}/students`, Student)
-          .then((res)=>{
-            console.log(res);
-            
-          })
+    console.log(Student);
+    axios
+      .post(`${baseURL}/students`, Student)
+      .then((res) => {
+        console.log(res);
+        setLoading(false);
+        toast({
+          title: "Student Added.",
+          description: "We've added student successfully",
+          status: "success",
+          duration: 9000,
+          position: "top",
+          isClosable: true,
+        });
+        fetchData();
+      })
+      .catch((e) => {
+        setLoading(false);
+        console.log(e);
+        toast({
+          title: "Error",
+          description: e.response.data.message,
+          status: "error",
+          duration: 9000,
+          position: "top",
+          isClosable: true,
+        });
+      });
   };
 
+  const fetchData = () => {
+    axios.get(`${baseURL}/students`).then((res) => {
+      const { data } = res;
+      setStudents(data);
+      console.log(data);
+    });
+  };
+
+  useEffect(fetchData, []);
 
   return (
     <div className="w-full flex items-center justify-center pt-4 ">
       <form
         className="w-[40%] shadow-lg  px-10 py-10"
-        onSubmit={(e) => {handleLogin(e)}}
+        onSubmit={(e) => {
+          handleLogin(e);
+        }}
       >
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
@@ -123,8 +161,8 @@ export default function LoginPage() {
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     onChange={(e) => setGender(e.target.value)}
                   >
-                    <option>MALE</option>
-                    <option>FEMALE</option>
+                    <option value="MALE">MALE</option>
+                    <option value="FEMALE">FEMALE</option>
                   </select>
                 </div>
               </div>
@@ -235,12 +273,15 @@ export default function LoginPage() {
           >
             Cancel
           </button>
-          <button
+          <Button
             type="submit"
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            isLoading={loading}
+            colorScheme="indigo"
+            spinner={<BeatLoader size={8} color="white" />}
           >
             Add Student
-          </button>
+          </Button>
         </div>
       </form>
     </div>
