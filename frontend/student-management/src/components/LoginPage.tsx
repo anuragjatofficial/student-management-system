@@ -91,7 +91,7 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
   return (
     <div className="w-full flex items-center justify-center pt-4 ">
       <form
-        className="w-[40%] shadow-lg  px-10 py-10"
+        className=" sm:w-[90%] md:w-[80%]  lg:w-[60%] xl:w-[45%]  w-full shadow-lg  px-10 py-10"
         onSubmit={(e) => {
           handleLogin(e);
         }}

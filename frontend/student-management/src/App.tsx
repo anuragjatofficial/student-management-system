@@ -29,7 +29,7 @@ export const App = () => {
   return (
     <div>
       <div className="py-3 shadow-md text-center mb-3">
-        <h2 className="text-4xl font-normal  tracking-tight text-black " style={{fontFamily: "'Ubuntu', sans-serif"}}>
+        <h2 className="text-2xl sm:text-2xl md:text-3xl  font-normal  tracking-tight text-black " style={{fontFamily: "'Ubuntu', sans-serif"}}>
           Student Management App
         </h2>
       </div>
