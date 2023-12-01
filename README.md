@@ -136,4 +136,15 @@ DELETE http://localhost:8080/students/<student-id>
 
 ### Contributing
 
+**Additional Notes:**
+
+* Please refer to the API documentation for more details about the available endpoints and their parameters.
+* The frontend application is a simple example of how to use the API. You can customize it to fit your specific needs.
+
+### Contributing
+
 Contributions are welcome! Please fork the repository and create a pull request.
+
+### License
+
+This project is licensed under the MIT license. See the LICENSE file for details.
