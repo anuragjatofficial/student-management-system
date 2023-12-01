@@ -119,6 +119,7 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     name="first-name"
                     id="first-name"
                     placeholder="John"
+                    value={firstName}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     onChange={(e) => setFirstName(e.target.value)}
                   />
@@ -138,6 +139,7 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     name="last-name"
                     id="last-name"
                     placeholder="doe"
+                    value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -156,6 +158,7 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     id="phone"
                     name="phone"
                     type="text"
+                    value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -174,6 +177,7 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     id="country"
                     name="gender"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    value={gender}
                     onChange={(e) => setGender(e.target.value)}
                   >
                     <option value="MALE">MALE</option>
@@ -195,6 +199,7 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     name="dob"
                     id="dob"
                     placeholder="doe"
+                    value={dob}
                     onChange={(e) => setDob(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -213,6 +218,7 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="text"
                     name="street-address"
                     id="street-address"
+                    value={streetAddress}
                     onChange={(e) => setStreetAddress(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -231,6 +237,7 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="text"
                     name="city"
                     id="city"
+                    value={city}
                     onChange={(e) => setCity(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -249,6 +256,7 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="text"
                     name="region"
                     id="region"
+                    value={province}
                     onChange={(e) => setProvince(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -267,6 +275,7 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="number"
                     name="postal-code"
                     id="postal-code"
+                    value={zip}
                     onChange={(e) => setZip(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />

@@ -28,6 +28,11 @@ export const App = () => {
   useEffect(fetchData, []);
   return (
     <div>
+      <div className="py-3 shadow-md text-center mb-3">
+        <h2 className="text-4xl font-normal  tracking-tight text-black " style={{fontFamily: "'Ubuntu', sans-serif"}}>
+          Student Management App
+        </h2>
+      </div>
       {isLoaded ? (
         <>
           <LoginPage
