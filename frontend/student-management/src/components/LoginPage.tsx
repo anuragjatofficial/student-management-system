@@ -56,7 +56,9 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
           position: "top",
           isClosable: true,
         });
-      });
+      }).finally(()=>{
+        clearForm();
+      })
   };
 
   const fetchData = () => {
@@ -73,6 +75,17 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
       });
   };
 
+  const clearForm =()=>{
+    setFirstName("");
+    setLastName("");
+    setDob("");
+    setGender("MALE");
+    setPhone("");
+    setStreetAddress("");
+    setCity("");
+    setProvince("");
+    setZip("");
+  }
   useEffect(fetchData, []);
 
   return (
@@ -105,7 +118,6 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="text"
                     name="first-name"
                     id="first-name"
-                    autoComplete="given-name"
                     placeholder="John"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     onChange={(e) => setFirstName(e.target.value)}
@@ -125,7 +137,6 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="text"
                     name="last-name"
                     id="last-name"
-                    autoComplete="family-name"
                     placeholder="doe"
                     onChange={(e) => setLastName(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -142,10 +153,9 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                 </label>
                 <div className="mt-2">
                   <input
-                    id="email"
+                    id="phone"
                     name="phone"
                     type="text"
-                    autoComplete="email"
                     onChange={(e) => setPhone(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -163,7 +173,6 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                   <select
                     id="country"
                     name="gender"
-                    autoComplete="country-name"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     onChange={(e) => setGender(e.target.value)}
                   >
@@ -185,7 +194,6 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="date"
                     name="dob"
                     id="dob"
-                    autoComplete="family-name"
                     placeholder="doe"
                     onChange={(e) => setDob(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -205,7 +213,6 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="text"
                     name="street-address"
                     id="street-address"
-                    autoComplete="street-address"
                     onChange={(e) => setStreetAddress(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -224,7 +231,6 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="text"
                     name="city"
                     id="city"
-                    autoComplete="address-level2"
                     onChange={(e) => setCity(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -243,7 +249,6 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="text"
                     name="region"
                     id="region"
-                    autoComplete="address-level1"
                     onChange={(e) => setProvince(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -262,7 +267,6 @@ export default function LoginPage({ students, setStudents, setIsLoaded, setError
                     type="number"
                     name="postal-code"
                     id="postal-code"
-                    autoComplete="postal-code"
                     onChange={(e) => setZip(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
