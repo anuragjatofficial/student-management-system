@@ -87,7 +87,7 @@ GET http://localhost:8080/students
 2. **Get a Student by ID:**
 
 ```
-GET http://localhost:8080/students/<student-id>
+GET http://localhost:8080/students/{student-id}
 ```
 
 3. **Add a New Student:**
@@ -112,7 +112,7 @@ Body:
 4. **Update a Student:**
 
 ```
-PUT http://localhost:8080/students/<student-id>
+PUT http://localhost:8080/students/{student-id}
 ```
 
 Body:
@@ -131,7 +131,7 @@ Body:
 5. **Delete a Student:**
 
 ```
-DELETE http://localhost:8080/students/<student-id>
+DELETE http://localhost:8080/students/{student-id}
 ```
 
 ### Contributing
